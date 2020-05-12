@@ -1,0 +1,40 @@
+.bd{
+    border: 1px solid #000;
+}
+.btn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+    font-size: .8rem;
+    line-height: 1rem;
+}
+.w80{
+    width: 78%;
+}
+.btnAdd{
+  min-width: 120px;
+  width: auto;
+   height: 40px;
+   font-size: 1rem;
+   padding: 0;
+  
+}
+.bor-top{
+    margin-top: 30px;
+    border-top: 1px solid grey;
+}
+.trbg{
+    background-color: rgb(194, 193, 193);
+}
+tbody tr:hover{
+    background-color: rgb(194, 193, 193);
+}
+.green{
+    color: green;
+    font-weight: bold;
+}
+.red{
+    color: red;
+   
+}

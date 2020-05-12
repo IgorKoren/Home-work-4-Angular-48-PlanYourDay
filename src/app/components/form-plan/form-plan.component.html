@@ -1,0 +1,70 @@
+<div class="container-fluid w80">
+
+  <br>
+  <h1>Plan your day!</h1>
+  <h2>User: Igor Koren. Count of Task 6</h2>
+  <div>
+    <hr>
+    <form class="mb-3">
+      <div class="form-row align-items-center ">
+        <div class="col-10">
+          <input type="text" [(ngModel)]="cursInput" name="cursInput" class="form-control" placeholder="">
+        </div>
+        <div class="col-2">
+          <button (click)="addFun()" [disabled]="isEditBtn" type="button" class="btn btn-success btn-lg btnAdd ">Add</button>
+        </div>
+      </div>
+    </form>
+
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Task</th>
+          <th scope="col">Check</th>
+          <th scope="col">DONE/IN PRODRESS</th>
+          <th>Edit</th>
+          <th>Delete</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let opt of curses; let ind = index">
+          <th scope="row">{{ind+1}}</th>
+          <td>{{opt.nameCourse}}</td>
+
+          <td >
+            <div class="custom-control custom-checkbox text-center"  >
+              <input type="checkbox" (click)="checkFun($event, ind)" [disabled]="isEditBtn" class="custom-control-input" [checked]="opt.isCheck" 
+                id="{{ind}}">
+              <label  class="custom-control-label"  for="{{ind}}"></label>
+            </div>
+          </td>
+          <td [class]="opt.isCheck ? 'green' : 'red'">{{opt.isCheck ? 'Done' : "In Progress"}}</td>
+
+          <td><button (click)="editFun(ind)" [disabled]="isEditBtn" class="btn btn-warning">Edit</button> </td>
+          <td>
+            <button 
+            (click)="deleteFun($event, ind)"   class="btn btn-danger" [disabled]="!opt.isCheck || isEditBtn"
+            >Delete
+            </button>
+          </td>
+        </tr>
+
+        <tr >
+          <th scope="row"></th>
+          <td></td>
+          <td></td>
+          <td>
+            <input [(ngModel)]="editNameCours" name="editNameCours" [style.display]="isEditBtn ? 'block' : 'none'" type="text" class="form-control">
+          </td>
+          <td>
+            <button (click)="saveFun()" [style.display]="isEditBtn ? 'block' : 'none'" class="btn btn-success btn-lg btnAdd">save</button>
+          </td>
+            <td>
+            <!-- <button (click)="cancelFun()" [style.display]="isEditBtn ? 'block' : 'none'" class="btn btn-success btn-lg btnAdd">cancel</button> -->
+            </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
